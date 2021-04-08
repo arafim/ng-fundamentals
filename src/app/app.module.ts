@@ -3,14 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { EventsAppComponent } from './events-app.component';
 
-@NgModule({
-  declarations: [
-    EventsAppComponent
-  ],
+@NgModule({  
   imports: [
     BrowserModule
   ],
-  providers: [],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
