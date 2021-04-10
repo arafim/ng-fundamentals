@@ -17,7 +17,7 @@ import {Component, Input} from '@angular/core'
     `,
     styles:[`
         .pad-left {margin-left:10px;}
-        .well div {color: #bbb; }
+        .well div {color: red; }
     `]
 })
 
