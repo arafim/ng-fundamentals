@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core'
+import {Component, Input, Output, EventEmitter} from '@angular/core'
 
 @Component({
     selector:'event-thumbnail',
@@ -13,11 +13,18 @@ import {Component, Input} from '@angular/core'
             <span>&nbsp;</span>
             <span>City: {{event.location.city}}, Country: {{event.location.country}}</span>
         </div>
+        <button class="btn btn-primary" (click)="handleClickMe()">Click me!</button>
     </div>
     `
 })
 
 export class EventThumbnailComponent{
     @Input() event:any
+    @Output() eventClick = new EventEmitter();
 
+    handleClickMe(){
+        //You can send just one parameter with emit call, so if you need more than
+        //one parameter, wrap them in an object
+        this.eventClick.emit(this.event.name);
+    }
 }
