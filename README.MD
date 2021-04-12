@@ -1,1 +1,1 @@
-* Run the following to install toastr in ng-fundamentals folder:  npm install toastr --save
+* Run the following to install toastr in ng-fundamentals folder:  npm install toastr --save 
