@@ -1,3 +1,1 @@
-* The resolver gets the events using getEvents() method of the eventService, then
-* the route.ts takes that and puts it on the route the events property, then
-* the EventsListComponent consumes the route data 'events' in ngOnInit() method
+* Go to the Network tab of chrome dev tools and filter for '/user' then click on Welcome John to see how scripts are loaded
