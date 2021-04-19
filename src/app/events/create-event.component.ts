@@ -29,21 +29,4 @@ export class CreateEventComponent{
     cancel(){
         this.router.navigate(['/events']);
     } 
-
-    ngOnInit(){
-        this.newEvent = {
-            name:'Ng Spectacular',
-            date:'8/8/2028',
-            time: '10am',
-            price: 799.99,
-            location:{
-                address: '123 Main St',
-                city: 'Buffalo',
-                country: 'USA'
-            },
-            onlineUrl: 'http://angular.io',
-            imageUrl: 'https://angular.io/assets/images/logos/angular/logo-nav@2x.png'            
-        }
-    }
-
 }
