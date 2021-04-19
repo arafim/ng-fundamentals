@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl,FormGroup, Validators } from "@angular/forms";
+import { ControlContainer, FormControl,FormGroup, Validators } from "@angular/forms";
 import { ISession } from "../shared/index";
 
 @Component({
@@ -27,7 +27,8 @@ export class CreateSessionComponent implements OnInit{
         this.presenter = new FormControl('',Validators.required)
         this.duration = new FormControl('',Validators.required)
         this.level = new FormControl('',Validators.required)
-        this.abstract = new FormControl('',[Validators.required,Validators.maxLength(400)])
+        this.abstract = new FormControl('',[Validators.required,Validators.maxLength(400),
+                                            this.restrictedWords])
 
         this.newSessionForm = new FormGroup({
             name : this.name,
@@ -36,6 +37,13 @@ export class CreateSessionComponent implements OnInit{
             level : this.level,
             abstract : this.abstract
         })
+    }
+
+    private restrictedWords(control:FormControl): {[key:string]:any} //--This means it returns an object
+    {
+       return control.value.includes('foo') 
+       ? {'restrictedWords':'foo'} //--restrictedWords key word needs to match what is in html (ie line 41 abstract?.errors.restrictedWords)
+       : null          
     }
 
     saveSession(formValues){
