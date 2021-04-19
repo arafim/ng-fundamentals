@@ -1,1 +1,1 @@
-* Go to the Network tab of chrome dev tools and filter for '/user' then click on Welcome John to see how scripts are loaded
+* see complete list of validators at https://angular.io/api/forms/Validators
