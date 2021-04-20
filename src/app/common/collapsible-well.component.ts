@@ -5,16 +5,15 @@ import { Component, Input } from "@angular/core";
     template:`
         <div (click)="toggleContent()" class="well pointable">
         <h4>
-            <ng-content select=".title"></ng-content>
+            <ng-content select="[well-title]"></ng-content>
         </h4>
-        <ng-content select=".body" *ngIf="visible"></ng-content>
+        <ng-content select="[well-body]" *ngIf="visible"></ng-content>
         </div>
     `,
     styles:[]
 })
 
-export class CollapsibleWellComponent{
-    @Input() title:string;
+export class CollapsibleWellComponent{ 
     visible: boolean = true;
 
     toggleContent(){
