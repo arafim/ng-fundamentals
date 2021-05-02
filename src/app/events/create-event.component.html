@@ -31,7 +31,7 @@
         class="form-control" placeholder="event price..." />
     </div>
 
-    <div ngModelGroup="location">
+    <div ngModelGroup="location" validateLocation>
       <div class="form-group">
         <label for="address">Event Location:</label>
         <input (ngModel)="newEvent.address" name="address" id="address" type="text" class="form-control"
