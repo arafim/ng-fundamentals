@@ -9,6 +9,7 @@ export class EventListResolver implements Resolve<any>{
 
     }
     resolve(){
-        return this.eventService.getEvents().pipe(map(events=>events))
+        //resolver automatically subscribes to an observable, no need to call subscribe, outside resolver you will have to call subscribe
+        return this.eventService.getEvents() 
     }
 }
