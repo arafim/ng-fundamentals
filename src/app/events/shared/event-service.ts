@@ -13,14 +13,17 @@ export class EventService{
       .pipe(catchError(this.handelError<IEvent[]>('getEvents',[])))
     }
 
-    getEvent(id:number){
-      return EVENTS.find(event => event.id === id)
+    getEvent(id:number): Observable<IEvent>{
+      return this.http.get<IEvent>('/api/events/' + id)
+      .pipe(catchError(this.handelError<IEvent>('getEvents')))      
     }
+
     saveEvent(event){
       event.id = 999
       event.session = []
       EVENTS.push(event)
     }
+    
     updateEvent(event){
       let index = EVENTS.findIndex(x=>x.id=event.id)
       EVENTS[index] = event
