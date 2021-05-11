@@ -28,6 +28,26 @@ export class AuthService {
         return !!this.currentUser;
     }
 
+    checkAuthenticationStatus(){
+        this.http.get('/api/currentIdentity')
+        .pipe(tap(data => {
+                if(data instanceof Object){
+                    this.currentUser = <IUser>data;
+                }
+            }
+        ))
+        .subscribe()
+        
+        //--instead of using tap above we could have used subscribe like below.  The benefit of using tap is that
+        //--you can remove the .subscribe() from the end and do a return, and that way the caller can do the subscribe instead
+        //--Here is how you do it using a subscribe instead:
+        // .subscribe(data => {
+        //     if(data instanceof Object){
+        //         this.currentUser = <IUser>data;
+        //     }
+        // })
+    }
+
     updateCurrentUser(firstName, lastName){
         this.currentUser.firstName = firstName
         this.currentUser.lastName = lastName
